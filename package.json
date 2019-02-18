@@ -2,9 +2,10 @@
   "name": "file-upload-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon",
+    "start": "node"
   },
   "keywords": [],
   "author": "Kwabena Berko <kwabenaberko95@gmail.com> (https://github.com/KwabenBerko)",
