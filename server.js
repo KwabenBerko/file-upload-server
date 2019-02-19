@@ -42,6 +42,8 @@ app.post("/upload", upload.single("image"), (req, res, next) => {
     err["status"] = 400;
     return next(err);
   }
+  console.log(req.file);
+  console.log(req.body);	
 
   res.status(204).send();
 });
