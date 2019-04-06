@@ -25,7 +25,7 @@ const upload = multer({
 
     cb(null, true);
   },
-  limits: { files: 1, fileSize: 1000000 }
+  limits: { fileSize: 1000000 }
 });
 app.use(morgan("dev"));
 
@@ -43,7 +43,19 @@ app.post("/upload", upload.single("image"), (req, res, next) => {
     return next(err);
   }
   console.log(req.file);
-  console.log(req.body);	
+  console.log(req.body);
+
+  res.status(204).send();
+});
+
+app.post("/uploads", upload.array("images"), (req, res, next) => {
+  if (!req.files) {
+    const err = new Error("No file(s) found.");
+    err["status"] = 400;
+    return next(err);
+  }
+  console.log(req.files);
+  console.log(req.body);
 
   res.status(204).send();
 });
